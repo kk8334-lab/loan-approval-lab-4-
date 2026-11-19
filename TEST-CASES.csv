@@ -1,0 +1,6 @@
+Test ID,Scenario,Key inputs,Expected route,Actual result,Status
+T1,Meets approval criteria,"income=60000; amount=900000; score=720; debt=10000",Validation > REST Connector success > DMN Approved > record outcome,Fill after execution,Not run
+T2,Fails eligibility criteria,"income=12000; amount=300000; score=720; debt=1000",Validation > REST Connector success > DMN Rejected > record outcome,Fill after execution,Not run
+T3,Requires manual review,"income=50000; amount=1000000; score=620; debt=10000",Validation > REST Connector success > DMN Manual Review > Tasklist,Fill after execution,Not run
+T4,Credit API error,"simulateCreditApiFailure=true",REST Connector receives HTTP 503 > inspect incident/error in Operate > restore and retry where supported,Fill after execution,Not run
+T5,Worker failure and recovery,"Stop worker or cause a controlled worker failure; restore worker",Worker retries exhausted > inspect incident in Operate > correct cause > retry job,Fill after execution,Not run

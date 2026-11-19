@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Decision_LoanEligibility" name="Loan Eligibility" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.49.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <decision id="Decision_LoanEligibility_v2" name="Loan Eligibility">
+    <decisionTable id="DecisionTable_0enrdy7" hitPolicy="FIRST">
+      <input id="Input_1" label="Monthly Income">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>monthlyIncome</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_11ydnyb" label="Loan to Income Multiple">
+        <inputExpression id="LiteralExpression_08yv813" typeRef="number">
+          <text>loanToIncomeMultiple</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0cl3e3l" label="Credit Score">
+        <inputExpression id="LiteralExpression_1gezzxq" typeRef="number">
+          <text>creditCheckResponse.body.creditScore</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1t6cwyq" label="Debt to Income Ratio">
+        <inputExpression id="LiteralExpression_1pr5pf7" typeRef="number">
+          <text>debtToIncomeRatio</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Loan Decision" name="decision" typeRef="string" />
+      <rule id="DecisionRule_0ms07lz">
+        <inputEntry id="UnaryTests_09vfwgk">
+          <text>&lt; 15000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1297bzd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tufibz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0esj3v7">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fc6jzi">
+          <text>"Rejected"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0v4ija8">
+        <inputEntry id="UnaryTests_1o2p3t0">
+          <text>&gt;= 15000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yffnue">
+          <text>&gt; 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zup1da">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gdtsn2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15cxq5y">
+          <text>"Rejected"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0l4fqbc">
+        <inputEntry id="UnaryTests_1cyoapg">
+          <text>&gt;= 15000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10sxb5b">
+          <text>&lt;= 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lrivmy">
+          <text>&lt; 650</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wl2xoy">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0idn77y">
+          <text>"Manual Review"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qj3sbc">
+        <inputEntry id="UnaryTests_0w7mkq2">
+          <text>&gt;= 15000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uby51f">
+          <text>&lt;= 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0snkrvn">
+          <text>&gt;= 650</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oz2zc7">
+          <text>&gt; 0.40</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f3wbgo">
+          <text>"Manual Review"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m5j2vo">
+        <inputEntry id="UnaryTests_0vspdvf">
+          <text>&gt;= 15000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qmqn5d">
+          <text>&lt;= 60</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q6262e">
+          <text>&gt;= 650</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j0hcx1">
+          <text>&lt;= 0.40</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jkdw18">
+          <text>"Approved"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="Decision_04qwkq4_di" dmnElementRef="Decision_LoanEligibility_v2">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

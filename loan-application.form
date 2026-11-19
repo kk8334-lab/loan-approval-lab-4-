@@ -1,0 +1,84 @@
+{
+  "components": [
+    {
+      "type": "textfield",
+      "key": "applicantName",
+      "label": "Applicant name",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "textfield",
+      "key": "applicantId",
+      "label": "Synthetic applicant reference",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "textfield",
+      "key": "email",
+      "label": "Email address",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "type": "number",
+      "key": "age",
+      "label": "Age",
+      "validate": {
+        "required": true,
+        "min": 18,
+        "max": 70
+      }
+    },
+    {
+      "type": "number",
+      "key": "monthlyIncome",
+      "label": "Monthly income (INR)",
+      "validate": {
+        "required": true,
+        "min": 1
+      }
+    },
+    {
+      "type": "number",
+      "key": "requestedAmount",
+      "label": "Requested loan amount (INR)",
+      "validate": {
+        "required": true,
+        "min": 1
+      }
+    },
+    {
+      "type": "number",
+      "key": "existingMonthlyDebt",
+      "label": "Existing monthly debt (INR)",
+      "validate": {
+        "required": true,
+        "min": 0
+      }
+    },
+    {
+      "type": "number",
+      "key": "declaredCreditScore",
+      "label": "Synthetic declared credit score (300\u2013900)",
+      "validate": {
+        "required": true,
+        "min": 300,
+        "max": 900
+      }
+    },
+    {
+      "type": "checkbox",
+      "key": "simulateCreditApiFailure",
+      "label": "Simulate credit API failure (testing only)"
+    }
+  ],
+  "type": "default",
+  "id": "Form_LoanApplication",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.8.0"
+}
